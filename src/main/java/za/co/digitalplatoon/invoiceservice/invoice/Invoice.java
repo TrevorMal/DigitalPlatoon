@@ -100,7 +100,7 @@ public class Invoice
   @Transient
   public BigDecimal getVat()
   {
-    return getSubTotal().multiply(vatRate);
+    return getSubTotal().multiply(vatRate).setScale(2,BigDecimal.ROUND_HALF_UP);
   }
 
   /**
@@ -110,7 +110,7 @@ public class Invoice
   @Transient
   public BigDecimal getTotal()
   {
-    return getSubTotal().add(getVat());
+    return getSubTotal().add(getVat()).setScale(2,BigDecimal.ROUND_HALF_UP);
   }
 
 }

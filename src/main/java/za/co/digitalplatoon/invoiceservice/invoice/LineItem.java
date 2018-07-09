@@ -98,6 +98,6 @@ public class LineItem
   @Transient
   public BigDecimal getLineItemTotal()
   {
-    return this.unitPrice.multiply(BigDecimal.valueOf(quantity));
+    return this.unitPrice.multiply(BigDecimal.valueOf(quantity)).setScale(2,BigDecimal.ROUND_HALF_UP);
   }
 }
